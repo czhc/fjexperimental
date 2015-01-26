@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="FujiAIRE">
+    <title>FujiAIRE</title>
+
+    <link rel="shortcut icon" href="<%= image_path('favicon.ico') %>" type="image/x-icon">
+    <link rel="icon" href="<%= image_path('favicon.ico') %>" type="image/x-icon">
+  </head>
+  <body>
+    <div id="social-box">
+      <ul class="list-unstyled list-inline">
+        <li class="social" id="fb">FB</li>
+        <li class="social" id="tw">TW</li>
+        <li class="social" id="gp">G+</li>
+      </ul>
+    </div>
+
+    <div class="overlay">
+    </div>
+    <div class="cloud-container">
+      <div class="tier1">
+        <span class="cloud" id="cld1-1"></span>
+        <span class="cloud" id="cld2-1"></span>
+        <span class="cloud" id="cld3-1"></span>      
+      </div>
+      <div class="tier2">
+        <span class="cloud" id="cld1-2"></span>
+        <span class="cloud" id="cld2-2"></span>
+        <span class="cloud" id="cld3-2"></span>      
+      </div>
+    </div>
+
+    <div class="container main-container">
+      <div class="row">
+        <div class="col-md-9 col-lg-8" id="remote-container">
+          <%= image_tag 'models/model_ssm.png', class: "img-responsive center-block" %>
+        </div>
+        <div class="col-md-3 col-lg-4"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-9 col-lg-8">
+          <div id="volume">
+            <span class="glyphicon glyphicon-volume-up" id="vol-on"></span>
+            <span class="glyphicon glyphicon-volume-off" id="vol-off"></span>
+          </div>
+          <div class="videoWrappper" id="main-vid">
+            <div class="preloader">
+              <%= image_tag 'loading1.gif', class: "img-responsive center-block" %>
+            </div>
+            <div class="video-container">
+              <video preload loop id="main" class="img-responsive center-block">
+                <source type="video/mp4">
+                Your browser does not support the video tag.
+              </video>              
+            </div>
+          </div>
+          <div class="sub-vid">
+            <div class="col-md-3 col-lg-3 nopadding videoWrapper">
+              <div class="preloader">
+                <%= image_tag 'loading1.gif', class: "img-responsive center-block" %>
+              </div>
+              <div class="video-container">
+                <video preload loop class="sub" id="1">
+                  <source type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+            <div class="col-md-3 col-lg-3 nopadding videoWrapper">
+              <div class="preloader">
+                <%= image_tag 'loading1.gif', class: "img-responsive center-block" %>
+              </div>
+              <div class="video-container">
+                <video preload loop class="sub" id="2">
+                  <source type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+            <div class="col-md-3 col-lg-3 nopadding videoWrapper" >
+              <div class="preloader">
+                <%= image_tag 'loading1.gif', class: "img-responsive center-block" %>
+              </div>
+              <div class="video-container">
+                <video preload loop class="sub" id="3">
+                  <source type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+            <div class="col-md-3 col-lg-3 nopadding videoWrapper">
+              <div class="preloader">
+                <%= image_tag 'loading1.gif', class: "img-responsive center-block" %>
+              </div>
+              <div class="video-container">
+                <video preload loop class="sub" id="4">
+                  <source type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-lg-4" id="main-cont">
+          <div class="col-md-12 col-lg-8 col-lg-offset-2">
+
+            <div class="row spacer-right hidden-xs"></div>
+            <div class="row" id="disp-row">
+              <div class="col-lg-12" id="disp-cont" >
+                <div class="row" id="fan">
+                  <div class="col-md-4 col-lg-3 nopadding" id="fan-cont">
+                    <%= image_tag 'fan.gif', class: "img-responsive center-block nopadding" %>
+                  </div>
+                  <div class="col-md-8 col-lg-7 nopadding" id="bar-cont">
+                    <ul class="list-unstyled list-inline" id="scale">
+                    </ul>                
+                  </div>
+                </div>
+                <div class="row" id="temp">
+                  <div class="col-md-6 col-md-offset-1 col-lg-4 col-lg-offset-3" id="val">
+                    <div class="row">
+                      <div class="col-md-5 col-md-offset-2 col-lg-5 col-lg-offset-2 sub-val"><span></span></div>
+                      <div class="col-md-5 col-lg-5 sub-val"><span></span></div>
+                    </div>
+                  </div>
+                  <div class="col-md-5 col-lg-3 " id="deg">              
+                    <span>&deg;</span><span>C</span>
+                  </div>
+                </div>              
+              </div>
+            </div>
+            <div class="row spacer-mid hidden-xs" ></div>
+            <div class="row">
+              <div class="col-lg-12" id="ctrl-cont">
+                <div class="col-md-6 col-lg-6">
+                  <a href="#" class="cs-fn js-fn" id="fn"><span>FAN</span></a>
+                </div>
+                <div class="col-md-6 col-lg-6 nopadding">
+                  <div class="col-md-6 col-lg-6 nopadding">
+                    <a href="#" class="cs-ctrl js-ctrl" id="up">
+                      <%= image_tag 'buttonup.png', class: "img-responsive center-block" %>
+                    </a>
+                  </div>
+                  <div class="col-md-6 col-lg-6 nopadding">
+                    <a href="#" class="cs-ctrl js-ctrl" id="down">
+                      <%= image_tag 'buttondown.png', class: "img-responsive center-block" %>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row spacer-remote hidden-xs" ></div>
+            <div class="row">
+              <div class="col-lg-12" id="logo">
+                <a href="/">
+                  <%= image_tag 'logo.png', class: "img-responsive center-block" %>
+                </a>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="color-overlay">
+    </div>
+  </body>
+
+  <script type="text/javascript">
+    var def_temp = 24; def_fan = 1;
+    var min = 16; max = 28;
+    var mid = (max + min)/2;
+    var fn_min = 1; fn_max = 5;
+    var readyToSub = false;
+    var step = 0;
+    var def_vol = 1;
+
+    //background and default events
+    $(document).ready(function(){
+      if (!localStorage['current']) localStorage['current'] = def_temp;
+      if (!localStorage['fan']) localStorage['fan'] = def_fan;
+      if (!localStorage['vol']) localStorage['vol'] = 1;
+      stubTempValues();
+      calcFanBars();
+      loadVideos(1);
+    });
+
+    function colorShade(){
+      percentage = (localStorage['current'] - mid)/(max - mid) * 100;
+
+      intensity = 0.05;  
+
+      red = 125 + (percentage);
+      blue = 125 - (percentage);
+      $('.color-overlay').css({
+        "background-color": "rgba("+ red +", 200, "+ blue +", "+intensity+")",
+      });
+    };
+
+    //remote functions
+    $('.js-fn').click(function(e){
+      if(localStorage['fan'] < fn_max){
+        localStorage['fan']++;
+      }else{
+        localStorage['fan'] = 1;
+      }
+      calcFanBars();
+      $('.cloud-container').css({
+        opacity: localStorage['fan'] * 0.2
+      })
+      e.preventDefault();
+    });
+
+    function calcFanBars(){
+      bars = (localStorage['fan'] - fn_min)+1;
+      $("#fan ul#scale").empty();
+      for ( var i = 0; i < bars; i++ ) {
+        li = $("<li></li>");
+        li.addClass('marker').append($("<span></span>"));
+        $("#fan ul#scale").append(li);
+      }
+    };
+
+    $('.js-ctrl').click(function(e){
+      old_step = step;
+      if ($(this).is("#up")){
+        if (localStorage['current'] < max){
+          localStorage['current']++;
+          step = 1;
+          stubTempValues();
+          loadVideos(step);
+          if (old_step != step) checkLoaded(); //reload if temp change
+        }
+      }else{
+        if (localStorage['current'] > min){
+          localStorage['current']--;
+          step = -1;
+          stubTempValues();
+          loadVideos(step);
+          if (old_step != step) checkLoaded(); //reload if temp change
+        }
+      }
+      e.preventDefault();
+    })
+
+    function stubTempValues(){
+      array = (""+localStorage['current']).split("");
+      array.forEach(function(val, i){
+        $("#temp #val div:nth-child("+(i+1)+") span").html(val);
+      })
+      colorShade();
+    };
+
+    //Volume control
+    $('#volume span').click(function(){
+      console.debug("test");
+      if ($(this).is('#vol-on')){
+        localStorage['vol'] = 0;
+      }else{
+        localStorage['vol'] = 1;
+      }
+      setVolume();
+    })
+
+    function setVolume(){
+      if (localStorage['vol'] == 1) {
+        $('video.sub').each(function(){ $(this).get(0).volume = 0});
+        $('video#main').get(0).volume = 1;
+        $('#vol-off').hide();
+        $('#vol-on').show();
+
+      }else{
+        $('video').each(function(){ $(this).get(0).volume = 0});
+        $('#vol-off').show();
+        $('#vol-on').hide();
+      }
+    }
+
+    //Video play functions
+    function loadVideos(val){
+      if (val > 0){
+        $('video#main source').attr('src',  "<%= video_path ('27/1.mp4') %>");
+        $('video.sub#1 source').attr('src', "<%= video_path ('27/2.mp4') %>");
+        $('video.sub#2 source').attr('src', "<%= video_path ('27/3.mp4') %>");
+        $('video.sub#3 source').attr('src', "<%= video_path ('27/4.mp4') %>");
+        $('video.sub#4 source').attr('src', "<%= video_path ('27/5.mp4') %>");        
+      }else{
+        $('video#main source').attr('src',  "<%= video_path ('16/1.mp4') %>");
+        $('video.sub#1 source').attr('src', "<%= video_path ('16/2.mp4') %>");
+        $('video.sub#2 source').attr('src', "<%= video_path ('16/3.mp4') %>");
+        $('video.sub#3 source').attr('src', "<%= video_path ('16/4.mp4') %>");
+        $('video.sub#4 source').attr('src', "<%= video_path ('16/5.mp4') %>");        
+      }
+      setVolume();
+    };
+
+    $(window).load(function() {
+      $('.cloud-container').animate({
+        opacity: 0.8,
+      }, 2000);
+      checkLoaded();
+    });
+
+    var loadcount = 0;
+
+    function checkLoaded() {
+      var main = $('video#main').get(0), sub1 = $('video.sub#1').get(0), sub2 = $('video.sub#2').get(0), sub3 = $('video.sub#3').get(0), sub4 = $('video.sub#4').get(0);
+      var preloader = $('.preloader');
+      if (main.readyState === 4 && sub1.readyState === 4 && sub2.readyState === 4 && sub3.readyState === 4 && sub4.readyState === 4) {
+        console.log('allready!');
+        preloader.hide();
+        readyToSub = true;
+        playVideos();
+      } else if (loadcount < 500){
+        console.log(loadcount);
+        loadcount++;
+        setTimeout(checkLoaded(), 10000);
+      } 
+      else {
+        console.log("ERR::TIMEOUT");
+      }
+      return false;
+    }
+
+    function playVideos() {
+      $('video').each(function(){ 
+        $(this).get(0).load();
+        $(this).get(0).play();
+      });
+
+      $('.videoWrapper').css({ "cursor": "pointer" });
+
+      //reset replay boundaries
+      $('video#main').bind('play', function(){
+        startTime = 3;
+        endTime = $(this).get(0).duration - 5;
+        var stopAfter = (endTime - startTime) * 1000;
+        setTimeout(function(){
+          $('video').each(function(){ 
+            vid = $(this).get(0);
+            vid.pause();
+            // vid.currentTime = startTime;
+            vid.play();
+          });
+        }, stopAfter);
+      });
+    }
+
+    //Swapping main and sub videos
+    $('.sub-vid').children().click(function(){
+      if (readyToSub){
+        subvid = $(this).find('video');
+        mainvid = $('#main-vid').find('video');
+        $(this).find('.video-container').html("").append(mainvid);
+        $('#main-vid').find('.video-container').html("").append(subvid);
+        subvid.get(0).play();
+        mainvid.get(0).play();
+      }
+    })
+
+    //Social functions
+    function popupCenter(url, width, height, name) {
+      var left = (screen.width/2)-(width/2);
+      var top = (screen.height/2)-(height/2);
+      return window.open(url, name, "menubar=no,toolbar=no,status=no,width=" + width + ",height=" + height + ",location=no,left="+left+",top="+top).focus();
+    }
+
+    $('.social').click(function(e){
+      if ($(this).is("#fb")){
+        popupCenter('//www.facebook.com/sharer/sharer.php?u='+window.location.origin+'&appId=1574445082774320',600,450,'Share on Facebook');
+      }else if ($(this).is("#tw")){
+        popupCenter('//twitter.com/intent/tweet?text=Check%20this%20site%20out!&url='+window.location.origin,600,450,'Share on Twitter');
+      }else if ($(this).is("#gp")){
+        popupCenter('//plus.google.com/share?url='+window.location.origin,600,450,'Share on Google+');
+      }
+      e.preventDefault();
+    });
+  </script>
+
+</html>
