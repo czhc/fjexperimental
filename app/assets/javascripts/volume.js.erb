@@ -1,0 +1,19 @@
+//Volume control
+$(document).on('click', '.js-volume-toggle', function(e){
+  $('.js-volume-toggle').toggleClass('hide');
+  setVolume();
+});
+
+function setVolume(){
+  localStorage['vol'] = $('.js-volume-toggle').not('.hide').data('value');
+  if (localStorage['vol'] == 1) {
+    $('video.sub').each(function(){ $(this).get(0).volume = 0});
+    $('video#main').get(0).volume = 1;
+    $('#vol-off').hide();
+    $('#vol-on').show();
+  }else{
+    $('video').each(function(){ $(this).get(0).volume = 0});
+    $('#vol-off').show();
+    $('#vol-on').hide();
+  }
+}

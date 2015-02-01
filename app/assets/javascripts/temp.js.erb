@@ -1,0 +1,47 @@
+var FJ = FJ || {};
+
+$(document).on('click','.js-ctrl', function(e){
+  old_step = step;
+  if ($(this).is("#up")){
+    if (localStorage['current'] < max){
+      localStorage['current']++;
+      step = 1;
+      stubTempValues();
+      loadVideos(step);
+      if (old_step != step) {
+        loadcount = 0;
+        checkLoaded(); //reload if temp change
+      }
+    }
+  }else{
+    if (localStorage['current'] > min){
+      localStorage['current']--;
+      step = -1;
+      stubTempValues();
+      loadVideos(step);
+      if (old_step != step) {
+        loadcount = 0;
+        checkLoaded(); //reload if temp change
+      }
+    }
+  }
+  e.preventDefault();
+});
+
+
+function colorShade(){
+  percentage = (localStorage['current'] - mid)/(max - mid) * 100;
+
+  intensity = 0.05;  
+
+  red = 125 + (percentage);
+  blue = 125 - (percentage);
+  $('.color-overlay').css({
+    "background-color": "rgba("+ red +", 200, "+ blue +", "+intensity+")",
+  });
+};
+
+function stubTempValues(){
+  $("#temp #val .sub-val span").html(localStorage['current']);
+  colorShade();
+};

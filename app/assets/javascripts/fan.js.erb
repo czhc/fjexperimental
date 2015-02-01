@@ -1,0 +1,28 @@
+$(window).load(function() {
+  $('.cloud-container').animate({
+    opacity: 1,
+  }, 2000);
+});
+
+$(document).on('click', '.js-fn', function(e){
+  if(localStorage['fan'] < fn_max){
+    localStorage['fan']++;
+  }else{
+    localStorage['fan'] = 1;
+  }
+  calcFanBars();
+  $('.cloud-container').css({
+    opacity: localStorage['fan'] * 1/fn_max
+  })
+  e.preventDefault();
+})
+
+function calcFanBars(){
+  bars = (localStorage['fan'] - fn_min)+1;
+  $("ul#scale").empty();
+  for ( var i = 0; i < bars; i++ ) {
+    li = $("<li></li>");
+    li.addClass('marker').append($("<span></span>"));
+    $("ul#scale").append(li);
+  }
+};

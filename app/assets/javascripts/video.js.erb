@@ -1,0 +1,83 @@
+//Video play functions
+function loadVideos(val){
+  if (val > 0){
+    $('video#main').attr('src',  "<%= video_path ('27/1.mp4') %>");
+    $('video.sub#1').attr('src', "<%= video_path ('27/2.mp4') %>");
+    $('video.sub#2').attr('src', "<%= video_path ('27/3.mp4') %>");
+    $('video.sub#3').attr('src', "<%= video_path ('27/4.mp4') %>");
+    $('video.sub#4').attr('src', "<%= video_path ('27/5.mp4') %>");        
+  }else{
+    $('video#main').attr('src',  "<%= video_path ('16/1.mp4') %>");
+    $('video.sub#1').attr('src', "<%= video_path ('16/2.mp4') %>");
+    $('video.sub#2').attr('src', "<%= video_path ('16/3.mp4') %>");
+    $('video.sub#3').attr('src', "<%= video_path ('16/4.mp4') %>");
+    $('video.sub#4').attr('src', "<%= video_path ('16/5.mp4') %>");        
+  }
+  setVolume();
+};
+
+function checkLoaded() {
+  var main = $('video#main').get(0);
+  var sub1 = $('video.sub#1').get(0);
+  var sub2 = $('video.sub#2').get(0);
+  var sub3 = $('video.sub#3').get(0);
+  var sub4 = $('video.sub#4').get(0);
+
+  console.debug('checkLoaded: '+ loadcount);
+  setInterval(function(){
+    if (main.readyState > 2 && sub1.readyState > 2 && sub2.readyState > 2 && sub3.readyState > 2 && sub4.readyState > 2){
+      readyToSub = true;
+      playVideos();
+
+      loadcount = 0;
+      return false;
+    }else if(loadcount > 50){
+      return false;
+    }else{
+      loadcount++;
+      checkLoaded();
+    }
+  }, 2000);
+}
+
+function playVideos() {
+  $('video').each(function(){ 
+    // $(this).get(0).load();
+    $(this).get(0).play();
+  });
+
+  $('.videoWrapper').css({ "cursor": "pointer" });
+
+  //reset replay boundaries
+  // $('video#main').bind('play', function(){
+  //   startTime = 3;
+  //   endTime = $(this).get(0).duration - 5;
+  //   var stopAfter = (endTime - startTime) * 1000;
+  //   setTimeout(function(){
+  //     $('video').each(function(){ 
+  //       vid = $(this).get(0);
+  //       vid.pause();
+  //       // vid.currentTime = startTime;
+  //       vid.play();
+  //     });
+  //   }, stopAfter);
+  // });
+
+  $('video#main').bind('ended', function(){
+    readyToSub = false;
+    // checkLoaded();
+    console.debug('ended');
+  });
+}
+
+//Swapping main and sub videos
+$(document).on('click', '.sub-vid .svchild', function(e){
+  if (readyToSub){
+    subvid = $(this).find('video');
+    mainvid = $('#main-vid').find('video');
+    $(this).find('.video-container').html("").append(mainvid);
+    $('#main-vid').find('.video-container').html("").append(subvid);
+    subvid.get(0).play();
+    mainvid.get(0).play();
+  }
+})
