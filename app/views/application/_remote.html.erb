@@ -1,89 +1,15 @@
-<div class="row" id="logo">
-  <a href="/">
-    <%= image_tag 'logo.png', class: "img-responsive center-block" %>
-  </a>
-</div>
+<%= render partial: 'logo' %>
 <div class="row">
-  <div class="col-lg-12" id="disp-cont" >
-    <div class="row" id="temp">
-      <div class="col-lg-3" id="remote-icons">
-        <ul class="list-unstyled">
-          <li><%= fa_icon "adjust" %></li>
-          <li><%= fa_icon "bed" %></li>
-          <li><%= fa_icon "leaf"%></li>
-          <li><%= fa_icon "fire" %></li>
-          <li><%= fa_icon "globe"%></li>
-        </ul>
-      </div> 
-      <div class="col-lg-9" id="val">
-        <div class="col-lg-7 sub-val"><span></span></div>
-        <div class="col-lg-3 sub-deg">
-          <span>&deg;</span><span>C</span>            
-        </div>
-      </div>
-    </div>
-  </div>
+  <%= render partial: 'temperature' %>
 </div>
 
 <div class="row">
-  <div class="col-lg-12" id="fan-cont">  
-    <div class="col-lg-2 nopadding" id="fan-logo">
-      <%= fa_icon 'cloud' %>
-    </div>
-    <div class="col-lg-10 nopadding" id="bar-cont">
-      <ul class="list-unstyled list-inline" id="scale">
-      </ul>                
-    </div>
-  </div>
+  <%= render partial: 'fan'%>
 </div>
 
 <div class="row">
-  <div class="col-lg-12" id="ctrl-cont">  
-    <div class="col-lg-3 pad-left">
-      <div class="row btn-row">
-        <a href="#" class="cs-btn" >
-          <%= fa_icon 'volume-off', base: "circle", class: 'left js-volume-toggle', id: 'mode', data: {value: '0'} %>
-          <%= fa_icon 'volume-up', base: "circle", class: 'left js-volume-toggle hide', id: 'mode', data: {value: '1'} %>
-        </a>      
-      </div>
-      <div class="row btn-row">
-        <a href="#" class="cs-btn js-fn" ><%= fa_icon 'cloud', base: "circle", class: 'left', id: 'fan' %></a>
-      </div>
-    </div>
-    <div class="col-lg-6 pad-mid">
-      <a href="#" class="cs-btn "><%= fa_icon 'power-off', base: "circle", class: 'mid', id: 'power' %></a>
-    </div>
-    <div class="col-lg-3 pad-right">
-      <div class="row btn-row">
-        <a href="#" class="cs-btn js-ctrl" id="up"><%= fa_icon 'caret-up', base: "circle", class: 'right', id: 'up' %></a>
-      </div>
-      <div class="row btn-row">
-        <a href="#" class="cs-btn js-ctrl" id="down"><%= fa_icon 'caret-down', base: "circle", class: 'right', id: 'down' %></a>
-      </div>
-    </div>  
-  </div>
+  <%= render partial: 'controls' %>
 </div>
 <div class="row sub-vid">
-  <ul class="list-unstyled">
-    <li class="svchild">
-      <div class="video-container">
-        <%= video_tag "",class: 'sub img-responsive center-block', id: '1', preload: true, loop: true %>
-      </div>
-    </li>
-    <li class="svchild">      
-      <div class="video-container">
-        <%= video_tag "",class: 'sub img-responsive center-block', id: '2', preload: true, loop: true %>
-      </div>
-    </li>
-    <li class="svchild">      
-      <div class="video-container">
-        <%= video_tag "",class: 'sub img-responsive center-block', id: '3', preload: true, loop: true %>
-      </div>
-    </li>
-    <li class="svchild">
-      <div class="video-container">
-        <%= video_tag "",class: 'sub img-responsive center-block', id: '4', preload: true, loop: true %>
-      </div>
-    </li>
-  </ul>
+  <%= render partial: 'sub_vids' %>  
 </div>
