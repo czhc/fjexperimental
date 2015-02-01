@@ -52,6 +52,7 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler', '~> 1.1.2'
+  gem 'capistrano-faster-assets', '~> 1.0'
   gem 'capistrano-gitflow', git: "https://github.com/czhc/capistrano-gitflow.git"
 end
 
