@@ -1,128 +1,19 @@
-<div id="social-box">
-  <ul class="list-unstyled list-inline">
-    <li class="social" id="fb">FB</li>
-    <li class="social" id="tw">TW</li>
-    <li class="social" id="gp">G+</li>
-  </ul>
-</div>
+<%= render partial: 'social' %>
 
 <div class="overlay">
 </div>
+
 <div class="cloud-container">
-  <div class="tier1">
-    <span class="cloud" id="cld1-1"></span>
-    <span class="cloud" id="cld2-1"></span>
-    <span class="cloud" id="cld3-1"></span>      
-  </div>
-  <div class="tier2">
-    <span class="cloud" id="cld1-2"></span>
-    <span class="cloud" id="cld2-2"></span>
-    <span class="cloud" id="cld3-2"></span>      
-  </div>
+  <%= render partial: 'clouds' %>
 </div>
 
 <div class="container main-container">
   <div class="row">
-    <div class="col-md-9 col-lg-8" id="remote-container">
-      <%= image_tag 'models/model_ssm.png', class: "img-responsive center-block" %>
-    </div>
-    <div class="col-md-3 col-lg-4"></div>
+    <%= render partial: 'model' %>
   </div>
   <div class="row">
-    <div class="col-md-9 col-lg-8">
-      <div id="volume">
-        <span class="glyphicon glyphicon-volume-up js-volume-toggle " data-value="1"></span>
-        <span class="glyphicon glyphicon-volume-off js-volume-toggle hide" data-value="0"></span>
-      </div>
-      <div class="videoWrappper" id="main-vid">
-        <div class="video-container">
-          <%= video_tag "", class: 'img-responsive center-block', id: 'main', preload: true %>
-        </div>
-      </div>
-      <div class="sub-vid">
-        <div class="col-md-3 col-lg-3 nopadding videoWrapper svchild">
-          <div class="video-container">
-            <%= video_tag "",class: 'sub', id: '1', preload: true %>
-          </div>
-        </div>
-        <div class="col-md-3 col-lg-3 nopadding videoWrapper svchild">
-          <div class="video-container">
-            <%= video_tag "",class: 'sub', id: '2', preload: true %>
-          </div>
-        </div>
-        <div class="col-md-3 col-lg-3 nopadding videoWrapper svchild" >
-          <div class="video-container">
-            <%= video_tag "",class: 'sub', id: '3', preload: true %>
-          </div>
-        </div>
-        <div class="col-md-3 col-lg-3 nopadding videoWrapper svchild">
-          <div class="video-container">
-            <%= video_tag "",class: 'sub', id: '4', preload: true %>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-3 col-lg-4" id="main-cont">
-      <div class="col-md-12 col-lg-8 col-lg-offset-2">
-
-        <div class="row spacer-right hidden-xs"></div>
-        <div class="row" id="disp-row">
-          <div class="col-lg-12" id="disp-cont" >
-            <div class="row" id="fan">
-              <div class="col-md-4 col-lg-3 nopadding" id="fan-cont">
-                <%= image_tag 'fan.gif', class: "img-responsive center-block nopadding" %>
-              </div>
-              <div class="col-md-8 col-lg-7 nopadding" id="bar-cont">
-                <ul class="list-unstyled list-inline" id="scale">
-                </ul>                
-              </div>
-            </div>
-            <div class="row" id="temp">
-              <div class="col-md-6 col-md-offset-1 col-lg-4 col-lg-offset-3" id="val">
-                <div class="row">
-                  <div class="col-md-5 col-md-offset-2 col-lg-5 col-lg-offset-2 sub-val"><span></span></div>
-                  <div class="col-md-5 col-lg-5 sub-val"><span></span></div>
-                </div>
-              </div>
-              <div class="col-md-5 col-lg-3 " id="deg">              
-                <span>&deg;</span><span>C</span>
-              </div>
-            </div>              
-          </div>
-        </div>
-        <div class="row spacer-mid hidden-xs" ></div>
-        <div class="row">
-          <div class="col-lg-12" id="ctrl-cont">
-            <div class="col-md-6 col-lg-6">
-              <a href="#" class="cs-fn js-fn" id="fn"><span>FAN</span></a>
-            </div>
-            <div class="col-md-6 col-lg-6 nopadding">
-              <div class="col-md-6 col-lg-6 nopadding">
-                <a href="#" class="cs-ctrl js-ctrl" id="up">
-                  <%= image_tag 'buttonup.png', class: "img-responsive center-block" %>
-                </a>
-              </div>
-              <div class="col-md-6 col-lg-6 nopadding">
-                <a href="#" class="cs-ctrl js-ctrl" id="down">
-                  <%= image_tag 'buttondown.png', class: "img-responsive center-block" %>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row spacer-remote hidden-xs" ></div>
-        <div class="row">
-          <div class="col-lg-12" id="logo">
-            <a href="/">
-              <%= image_tag 'logo.png', class: "img-responsive center-block" %>
-            </a>
-          </div>
-        </div>
-        
-      </div>
-    </div>
-
+    <%= render partial: 'video' %>
+    <%= render partial: 'remote' %> 
   </div>
 </div>
 
