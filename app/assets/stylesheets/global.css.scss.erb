@@ -11,8 +11,16 @@ body
 .hero,.sub-hero{
   padding: 0;
   background-color: white;
+  display: inline-block;
 }
 
+.hero{
+  width: 88%;
+}
+.sub-hero{
+  width: 11%;
+  position: absolute;
+}
 #social-box {
   z-index: 100;
   position: absolute;
@@ -282,7 +290,7 @@ video {
       span {
         display: inline-block;
         background: white;
-        width: 10px;
+        width: 9px;
         height: 18px;
       }
     }
@@ -298,6 +306,7 @@ video {
     ul{
       width: 50%;
       margin-left: 25%;
+      margin-bottom: 0;
       li {
         padding-top: 10%;
       }
@@ -313,13 +322,14 @@ video {
         padding: 0;
         right: 0;
         span{
-          font-size: 90px;
+          font-size: 5.5em;
         }
       }
       .sub-deg{
-        padding: 0 5px;
-        font-size: 40px;
-        margin-top: 34%;
+        padding: 0;
+        font-size: 2em;
+        margin-top: 1.9em;
+        margin-left: 0.2em;
       }
     }
   }
@@ -330,6 +340,15 @@ video {
   margin-left: 10%;  
   margin-top: 1em;  
   padding: 0;
+  .pad-left{
+    padding-left: 0;
+  }
+  .pad-right{
+    padding-right: 0;
+  }
+  .pad-mid{
+    padding-left: 1em;
+  }
 }
 
 .btn-row{
@@ -371,15 +390,16 @@ video {
       &#mode{
       }
       &#fan{
-        margin-top: 1.3em;        
+        margin-top: 0.7em;        
       }
     }
     &.mid{
-      font-size: 4em;
+      font-size: 3em;
       width: 1.5em;
       height: 1.5em;
       border-radius: 1.5em;
-      line-height: 1.3em;
+      line-height: 1.15em;
+      margin-top: 0.25em;
     }    
     &.right{
       height: 1.2em;
@@ -389,13 +409,19 @@ video {
         line-height: 0.6em;
       }
       &#down{
-        margin-top: 0.5em;
+        margin-top: 0.3em;
         line-height: 0.8em;
       }
     }
   }
 }
 
+.sub-vid{
+  margin-top: 1em;
+  .video-container{
+    padding: 0.1em;
+  }
+}
 .svchild .video-container video{
-  height: 100px;
+  height: 80px;
 }
