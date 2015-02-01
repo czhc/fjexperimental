@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Fujirails</title>
+  <%= title ||= "Fujirails" %>
+  <title><%= title %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <% image ||= image_url('logo.png') %>
+  <% description ||= 'Insert site description' %>
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="<%= title %>"/>
+  <meta property="og:url" content="<%= request.url %>"/>
+  <meta property="og:image" content="<%= image %>"/>
+  <meta property="og:description" content="<%= description %>" />
+  <meta property="og:site_name" content="fujiaire.com"/>
+  <meta name="title" content="<%= title %>"/>
+  <meta name="description" content="<%= description %>" />
+  <link rel="canonical" href="<%= request.url %>" />
+
+  <%= favicon_link_tag image_path('favicon.ico'), :rel => 'apple-touch-icon shortcut icon', :type => 'image/png' %>
 </head>
 <body>
 
