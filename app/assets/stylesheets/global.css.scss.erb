@@ -1,6 +1,6 @@
 body
 {
-  background-color: black;
+  background-color: grey;
 }
 .main-container{
   width: 100%;
@@ -10,7 +10,7 @@ body
 
 .hero,.sub-hero{
   padding: 0;
-  background-color: black;
+  background-color: white;
 }
 
 #social-box {
@@ -45,15 +45,6 @@ body
     //   background: #db4a39;
     // }
   }
-}
-
-.overlay{
-  background-color: rgba(0, 0, 0, 0.6);
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  position: absolute;
 }
 
 .overlay span.cloud {
@@ -263,7 +254,6 @@ video {
 }
 
 #logo{
-  background-color: white;
   padding: 1em 0em;
   width: 80%;
   margin-left: 10%;
@@ -335,49 +325,72 @@ video {
   }
 }
 
-#ctrl-cont {
-  // padding: 15px 0px;
-  // background-color: #C4C5C3;
-  a {
-    &.cs-fn {
-      text-decoration: none;
-      color: #555;
-      font-weight: 900;
-      text-shadow: 1px 0px #333, 0px 1px #333, -1px 0px #333, 0px -1px #333;
-      font-size: 18px;
-      &:active{
-        color: #333;
-        text-shadow: 1px 0px #111, 0px 1px #111, -1px 0px #111, 0px -1px #111;
-        span{
-          background-color: #4b4b4b;
-        }
+#ctrl-cont{
+  width: 80%;
+  margin-left: 10%;  
+  margin-top: 1em;  
+  padding: 0;
+}
+
+.btn-row{
+  padding: 0;
+  margin: 0;
+}
+
+.cs-btn {
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  font-weight: 900;
+  &:visited{
+    color: white;
+  }
+  &:hover{
+    color: white;
+  }
+  &:active{
+    color: white;
+  }
+  i {
+    padding: 5px 0px;
+    display: inline-block;
+    width: 35px;
+    -webkit-border-image: -webkit-gradient(linear, left top, left bottom, from(#00abeb), to(#fff), color-stop(0.5, #fff), color-stop(0.5, #66cc00)) 21 30 30 21 repeat repeat;
+    -moz-border-radius: 5px;
+    border-radius: 35px;
+    border: 3px solid #BEBEBE;
+    background-color:#696969;
+    &:active{
+      background-color: #23CEBF;
+      border-color: #A3FBF4;
+    }
+    &.left{
+      height: 2.3em;
+      margin-top: 5%;
+
+      &#mode{
       }
-      span {
-        text-align: center;
-        padding: 5px 0px;
-        display: inline-block;
-        width: 100%;
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-        border-radius: 5px;
-        border: 2px solid #7e7e7e;
-        background-color:#696969;
+      &#fan{
+        margin-top: 1.3em;        
       }
     }
-    &.cs-ctrl {
-      img{
-        min-height:40px;
-        max-height: 50px;
+    &.mid{
+      font-size: 4em;
+      width: 1.5em;
+      height: 1.5em;
+      border-radius: 1.5em;
+      line-height: 1.3em;
+    }    
+    &.right{
+      height: 1.2em;
+      margin-top: 5%;
+      font-size: 2em;
+      &#up{
+        line-height: 0.6em;
       }
-      &#up:active{
-        img{
-          // content: url("../images/buttonupactive.png");
-        }
-      }
-      &#down:active{
-        img{
-          // content: url("../images/buttondownactive.png");
-        }
+      &#down{
+        margin-top: 0.5em;
+        line-height: 0.8em;
       }
     }
   }

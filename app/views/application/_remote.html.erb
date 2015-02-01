@@ -24,6 +24,7 @@
     </div>
   </div>
 </div>
+
 <div class="row">
   <div class="col-lg-12" id="fan-cont">  
     <div class="col-lg-3 nopadding" id="fan-logo">
@@ -37,22 +38,26 @@
 </div>
 
 <div class="row">
-  <div class="col-lg-12" id="ctrl-cont">
-    <div class="col-md-6 col-lg-6">
-      <a href="#" class="cs-fn js-fn" id="fn"><span>FAN</span></a>
-    </div>
-    <div class="col-md-6 col-lg-6 nopadding">
-      <div class="col-md-6 col-lg-6 nopadding">
-        <a href="#" class="cs-ctrl js-ctrl" id="up">
-          <%= image_tag 'buttonup.png', class: "img-responsive center-block" %>
-        </a>
+  <div class="col-lg-12" id="ctrl-cont">  
+    <div class="col-lg-3 nopadding">
+      <div class="row btn-row">
+        <a href="#" class="cs-btn" ><i class="left" id='mode'>M</i></a>      
       </div>
-      <div class="col-md-6 col-lg-6 nopadding">
-        <a href="#" class="cs-ctrl js-ctrl" id="down">
-          <%= image_tag 'buttondown.png', class: "img-responsive center-block" %>
-        </a>
+      <div class="row btn-row">
+        <a href="#" class="cs-btn js-fn" ><%= fa_icon 'cloud', base: "circle", class: 'left', id: 'fan' %></a>
       </div>
     </div>
+    <div class="col-lg-6 nopadding">
+      <a href="#" class="cs-btn "><%= fa_icon 'power-off', base: "circle", class: 'mid', id: 'power' %></a>
+    </div>
+    <div class="col-lg-3 nopadding">
+      <div class="row btn-row">
+        <a href="#" class="cs-btn js-ctrl" id="up"><%= fa_icon 'caret-up', base: "circle", class: 'right', id: 'up' %></a>
+      </div>
+      <div class="row btn-row">
+        <a href="#" class="cs-btn js-ctrl" id="down"><%= fa_icon 'caret-down', base: "circle", class: 'right', id: 'down' %></a>
+      </div>
+    </div>  
   </div>
 </div>
 <div class="row sub-vid">
