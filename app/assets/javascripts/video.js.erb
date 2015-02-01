@@ -1,17 +1,17 @@
 //Video play functions
 function loadVideos(val){
   if (val > 0){
-    $('video#main').attr('src',  "<%= video_path ('27/1.mp4') %>");
-    $('video.sub#1').attr('src', "<%= video_path ('27/2.mp4') %>");
-    $('video.sub#2').attr('src', "<%= video_path ('27/3.mp4') %>");
-    $('video.sub#3').attr('src', "<%= video_path ('27/4.mp4') %>");
-    $('video.sub#4').attr('src', "<%= video_path ('27/5.mp4') %>");        
+    $('video#main').attr('src',  "<%= video_path ('27/1.mov') %>");
+    $('video.sub#1').attr('src', "<%= video_path ('27/2.mov') %>");
+    $('video.sub#2').attr('src', "<%= video_path ('27/3.mov') %>");
+    $('video.sub#3').attr('src', "<%= video_path ('27/4.mov') %>");
+    $('video.sub#4').attr('src', "<%= video_path ('27/5.mov') %>");        
   }else{
-    $('video#main').attr('src',  "<%= video_path ('16/1.mp4') %>");
-    $('video.sub#1').attr('src', "<%= video_path ('16/2.mp4') %>");
-    $('video.sub#2').attr('src', "<%= video_path ('16/3.mp4') %>");
-    $('video.sub#3').attr('src', "<%= video_path ('16/4.mp4') %>");
-    $('video.sub#4').attr('src', "<%= video_path ('16/5.mp4') %>");        
+    $('video#main').attr('src',  "<%= video_path ('16/1.mov') %>");
+    $('video.sub#1').attr('src', "<%= video_path ('16/2.mov') %>");
+    $('video.sub#2').attr('src', "<%= video_path ('16/3.mov') %>");
+    $('video.sub#3').attr('src', "<%= video_path ('16/4.mov') %>");
+    $('video.sub#4').attr('src', "<%= video_path ('16/5.mov') %>");        
   }
   setVolume();
 };
