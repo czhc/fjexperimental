@@ -1,19 +1,21 @@
-<%= render partial: 'social' %>
-<div class="row">
-  <%= render partial: 'model' %>
-</div>
-<div class="cloud-container">
-  <%= render partial: 'clouds' %>
-</div>
-
 <div class="container main-container">
+  <div class="color-overlay">
+  </div>
+
+  <div class="cloud-container">
+    <%= render partial: 'clouds' %>
+  </div>
+
+  <%= render partial: 'social' %>
+
+  <div class="row">
+    <%= render partial: 'model' %>
+  </div>
+
   <div class='col-lg-10 hero'>
     <%= render partial: 'video' %>  
   </div>
   <div class="col-lg-2 sub-hero">
     <%= render partial: 'remote' %>   
   </div>
-</div>
-
-<div class="color-overlay">
 </div>
