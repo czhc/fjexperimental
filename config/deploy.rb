@@ -1,7 +1,6 @@
 # config valid only for Capistrano 3.1
 lock '3.2.1'
 
-set :application, "protorails_#{fetch(:rails_env)}"
 set :repo_url, 'git@github.com:czhc/fjexperimental.git'
 
 set :rbenv_custom_path, '/opt/rbenv'
