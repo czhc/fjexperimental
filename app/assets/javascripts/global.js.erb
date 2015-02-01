@@ -1,7 +1,7 @@
 var def_temp = 24; def_fan = 1;
 var min = 16; max = 28;
 var mid = (max + min)/2;
-var fn_min = 1; fn_max = 5;
+var fn_min = 1; fn_max = 8;
 var readyToSub = false;
 var step = 0;
 var def_vol = 1;
@@ -36,18 +36,18 @@ $(document).on('click', '.js-fn', function(e){
   }
   calcFanBars();
   $('.cloud-container').css({
-    opacity: localStorage['fan'] * 0.2
+    opacity: localStorage['fan'] * 1/fn_max
   })
   e.preventDefault();
 })
 
 function calcFanBars(){
   bars = (localStorage['fan'] - fn_min)+1;
-  $("#fan ul#scale").empty();
+  $("ul#scale").empty();
   for ( var i = 0; i < bars; i++ ) {
     li = $("<li></li>");
     li.addClass('marker').append($("<span></span>"));
-    $("#fan ul#scale").append(li);
+    $("ul#scale").append(li);
   }
 };
 
@@ -74,10 +74,7 @@ $(document).on('click','.js-ctrl', function(e){
 });
 
 function stubTempValues(){
-  array = (""+localStorage['current']).split("");
-  array.forEach(function(val, i){
-    $("#temp #val div:nth-child("+(i+1)+") span").html(val);
-  })
+  $("#temp #val .sub-val span").html(localStorage['current']);
   colorShade();
 };
 

@@ -6,27 +6,36 @@
 <div class="row">
   <div class="col-lg-12" id="disp-cont" >
     <div class="row" id="temp">
-      <div class="col-md-6 col-md-offset-1 col-lg-4 col-lg-offset-3" id="val">
-        <div class="row">
-          <div class="col-md-5 col-md-offset-2 col-lg-5 col-lg-offset-2 sub-val"><span></span></div>
-          <div class="col-md-5 col-lg-5 sub-val"><span></span></div>
+      <div class="col-lg-3" id="remote-icons">
+        <ul class="list-unstyled">
+          <li><%= fa_icon "adjust" %></li>
+          <li><%= fa_icon "bed" %></li>
+          <li><%= fa_icon "leaf"%></li>
+          <li><%= fa_icon "fire" %></li>
+          <li><%= fa_icon "globe"%></li>
+        </ul>
+      </div> 
+      <div class="col-lg-9" id="val">
+        <div class="col-lg-7 sub-val"><span></span></div>
+        <div class="col-lg-3 sub-deg">
+          <span>&deg;</span><span>C</span>            
         </div>
-      </div>
-      <div class="col-md-5 col-lg-3 " id="deg">              
-        <span>&deg;</span><span>C</span>
-      </div>
-    </div>
-    <div class="row" id="fan">
-      <div class="col-md-4 col-lg-3 nopadding" id="fan-cont">
-        <%= image_tag 'fan.gif', class: "img-responsive center-block nopadding" %>
-      </div>
-      <div class="col-md-8 col-lg-7 nopadding" id="bar-cont">
-        <ul class="list-unstyled list-inline" id="scale">
-        </ul>                
       </div>
     </div>
   </div>
 </div>
+<div class="row">
+  <div class="col-lg-12" id="fan-cont">  
+    <div class="col-lg-3 nopadding" id="fan-logo">
+      <%= fa_icon 'cloud' %>
+    </div>
+    <div class="col-lg-9 nopadding" id="bar-cont">
+      <ul class="list-unstyled list-inline" id="scale">
+      </ul>                
+    </div>
+  </div>
+</div>
+
 <div class="row">
   <div class="col-lg-12" id="ctrl-cont">
     <div class="col-md-6 col-lg-6">
@@ -50,22 +59,22 @@
   <ul class="list-unstyled">
     <li class="svchild">
       <div class="video-container">
-        <%= video_tag "",class: 'sub', id: '1', preload: true %>
+        <%= video_tag "",class: 'sub img-responsive center-block', id: '1', preload: true %>
       </div>
     </li>
     <li class="svchild">      
       <div class="video-container">
-        <%= video_tag "",class: 'sub', id: '2', preload: true %>
+        <%= video_tag "",class: 'sub img-responsive center-block', id: '2', preload: true %>
       </div>
     </li>
     <li class="svchild">      
       <div class="video-container">
-        <%= video_tag "",class: 'sub', id: '3', preload: true %>
+        <%= video_tag "",class: 'sub img-responsive center-block', id: '3', preload: true %>
       </div>
     </li>
     <li class="svchild">
       <div class="video-container">
-        <%= video_tag "",class: 'sub', id: '4', preload: true %>
+        <%= video_tag "",class: 'sub img-responsive center-block', id: '4', preload: true %>
       </div>
     </li>
   </ul>

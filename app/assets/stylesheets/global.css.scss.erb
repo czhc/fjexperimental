@@ -1,6 +1,6 @@
 body
 {
-  background-color: grey;
+  background-color: black;
 }
 .main-container{
   width: 100%;
@@ -10,11 +10,9 @@ body
 
 .hero,.sub-hero{
   padding: 0;
+  background-color: black;
 }
-#logo{
-  background-color: white;
-  padding: 1em;
-}
+
 #social-box {
   z-index: 100;
   position: absolute;
@@ -97,9 +95,10 @@ body
 }
 
 #volume{
-  width: 100%;
   position: absolute;
   z-index: 5;
+  right: 0;
+  margin-right: 2%;
   span {
     color: white;
     padding: 10px;
@@ -262,56 +261,76 @@ video {
 #disp-row {
   margin: 0px;
 }
-#disp-cont {
-  background: #C9FF86;
-  border: 2px solid #979797;
-  #fan {
-    padding: 0px 15px;
-    #fan-cont{
-      padding-right: 0px;
+
+#logo{
+  background-color: white;
+  padding: 1em 0em;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 5%;
+}
+
+#fan-cont{
+  background: #595863;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 2%;
+  padding: 5%;
+  color: white;
+  span {
+    font-family: font-url('digital-7.tff');
+    font-size: 300%;
+  }
+}
+
+#bar-cont{
+  padding-left: 5px;
+  ul#scale{
+    margin: 0;
+    li.marker {
+      padding: 0px 2px;
       span {
-        font-family: font-url('digital-7.tff');
-        font-size: 300%;
-        color: #343232;
-      }
-    }
-    #bar-cont{
-      padding-left: 5px;
-      ul#scale{
-        li.marker {
-          padding: 0px 2px;
-          span {
-            display: inline-block;
-            width: 15px;
-            height: 35px;
-            background: #343232;
-          }
-        }
+        display: inline-block;
+        background: white;
+        width: 10px;
+        height: 18px;
       }
     }
   }
+}
 
-  #temp {
-    font-family: font-url('digital-7.tff');
-    color: #343232;
-    padding: 0px;
-    #val {
-      padding: 0px;
-      .sub-val{
-        padding: 0;
-        span{
-          font-size: 100px;
-          float: right;
-        }
+#disp-cont {
+  background: #595863;
+  width: 80%;
+  margin-left: 10%;
+  #remote-icons{
+    padding: 2%;
+    ul{
+      width: 50%;
+      margin-left: 25%;
+      li {
+        padding-top: 10%;
       }
     }
-    #deg {
-      padding-left: 10px;
-      height: 50%;
-      font-size: 50px;
-      letter-spacing: 5px;
-      vertical-align: top;
-      margin-top: 8%;
+  }
+  #temp {
+    font-family: font-url('digital-7.tff');
+    color: white;
+    #val {
+      padding: 0px;
+      margin-top: 5%;
+      .sub-val{
+        padding: 0;
+        right: 0;
+        span{
+          font-size: 90px;
+        }
+      }
+      .sub-deg{
+        padding: 0 5px;
+        font-size: 40px;
+        margin-top: 34%;
+      }
     }
   }
 }
@@ -352,14 +371,18 @@ video {
       }
       &#up:active{
         img{
-          content: url("../images/buttonupactive.png");
+          // content: url("../images/buttonupactive.png");
         }
       }
       &#down:active{
         img{
-          content: url("../images/buttondownactive.png");
+          // content: url("../images/buttondownactive.png");
         }
       }
     }
   }
+}
+
+.svchild .video-container video{
+  height: 100px;
 }
